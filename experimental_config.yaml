@@ -1,0 +1,5 @@
+experiment:
+  n_qubits: 4
+  pca_components: 4
+  test_size: 0.2
+  random_state: 42
