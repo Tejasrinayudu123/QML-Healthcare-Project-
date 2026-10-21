@@ -1,148 +1,277 @@
-This project implements a comprehensive machine learning pipeline for breast cancer diagnosis using both classical ML models and quantum machine learning (QML) techniques.
-It compares traditional algorithms with quantum‑enhanced models to evaluate improvements in accuracy, robustness, and computational efficiency.
+# Quantum Machine Learning for Healthcare
+## Breast Cancer Diagnosis Using Classical and Quantum-Inspired Machine Learning
 
-The goal is to explore how quantum computing can support healthcare diagnostics by improving pattern recognition in complex medical datasets.
+This project explores the application of Quantum Machine Learning (QML) techniques for healthcare diagnostics by comparing classical machine learning algorithms with quantum-inspired approaches for breast cancer diagnosis.
 
-✨ Key Features
-Classical Machine Learning
-Support Vector Machine (RBF‑SVM)
+Using the Wisconsin Diagnostic Breast Cancer (WDBC) dataset, the project evaluates predictive performance, quantum resource utilization, and computational efficiency to investigate the potential of quantum computing in healthcare applications.
 
-Random Forest Classifier
+---
 
-Logistic Regression
+## Overview
 
-Standard preprocessing (scaling, PCA, train/test split)
+Breast cancer is one of the most prevalent forms of cancer worldwide, and early diagnosis significantly improves patient outcomes. This project develops a complete machine learning pipeline that combines traditional machine learning and quantum-inspired algorithms to classify tumors as benign or malignant.
 
-Quantum Machine Learning
-Variational Quantum Classifier (VQC)
+The study focuses on:
 
-Quantum Kernel SVM (QKSVM)
+- Data preprocessing and feature engineering
+- Classical machine learning classification
+- Quantum-inspired machine learning models
+- Performance evaluation and comparison
+- Quantum resource analysis
 
-SPSA optimizer for quantum circuits
+---
 
-Qiskit‑based quantum circuit construction
+## Dataset
 
-Evaluation Metrics
-Accuracy
+### Wisconsin Diagnostic Breast Cancer (WDBC)
 
-Precision
+Dataset Characteristics:
 
-Recall
+- 569 patient samples
+- 30 diagnostic features
+- Binary classification problem:
+  - Benign
+  - Malignant
 
-F1‑Score
+Source:
 
-ROC‑AUC
+- UCI Machine Learning Repository
 
-Confusion Matrix
+---
 
-Project Capabilities
-End‑to‑end ML/QML pipeline
+## Implemented Models
 
-Modular architecture
+### Classical Machine Learning Models
 
-Easy to extend with new models
+#### Support Vector Machine (RBF-SVM)
 
-Clean separation of classical vs quantum workflows
+- Non-linear classification model
+- Strong baseline for healthcare datasets
 
-Reproducible experiment runner
+#### Random Forest Classifier
 
-📁 Project Structure
-Code
-COMPREHENSIVE_DBMS/
-│
+- Ensemble learning approach
+- Robust against overfitting
+- Strong performance on tabular data
+
+---
+
+### Quantum-Inspired Models
+
+#### Variational Quantum Classifier (VQC)
+
+Features:
+
+- Quantum-inspired feature representation
+- Variational optimization
+- 4-qubit architecture
+- Circuit-depth analysis
+
+#### Quantum Kernel Support Vector Machine (QKSVM)
+
+Features:
+
+- Quantum kernel mapping
+- ZZFeatureMap encoding
+- Kernel-based classification
+- Quantum resource evaluation
+
+---
+
+## Technologies Used
+
+- Python 3.11
+- Qiskit
+- Qiskit Machine Learning
+- Scikit-Learn
+- NumPy
+- Pandas
+- Matplotlib
+- Seaborn
+
+---
+
+## Project Structure
+
+```text
+QML-Healthcare-Project/
+
 ├── src/
+│   ├── __init__.py
 │   ├── data_loader.py
 │   ├── preprocessing.py
+│   ├── metrics.py
 │   ├── classical_models.py
 │   ├── quantum_vqc.py
 │   ├── quantum_kernel_svm.py
-│   ├── experiment_runner.py
-│   └── __init__.py
+│   ├── resource_analysis.py
+│   └── experiment_runner.py
 │
 ├── requirements.txt
 ├── README.md
-└── venv/  (ignored)
-⚙️ Installation & Setup
-1. Clone the repository
-Code
+│
+├── images/
+│   ├── pca_plot.png
+│   ├── accuracy_comparison.png
+│   ├── roc_auc_comparison.png
+│   ├── vqc_circuit.png
+│   └── feature_map.png
+│
+└── report/
+    └── IEEE_Report.tex
+```
+
+---
+
+## Installation
+
+### Clone Repository
+
+```bash
 git clone https://github.com/Tejasrinayudu123/QML-Healthcare-Project-.git
 cd QML-Healthcare-Project-
-2. Create a virtual environment
-Code
+```
+
+### Create Virtual Environment
+
+```bash
 python -m venv venv
 venv\Scripts\activate
-3. Install dependencies
-Code
+```
+
+### Install Dependencies
+
+```bash
 pip install -r requirements.txt
-🚀 Running the Project
-Use the experiment runner module:
+```
 
-Code
+---
+
+## Running the Project
+
+```bash
 python -m src.experiment_runner
-This will automatically:
+```
 
-Load the dataset
+The pipeline will:
 
-Preprocess the data
+1. Load the WDBC dataset
+2. Preprocess the data
+3. Train classical models
+4. Train quantum-inspired models
+5. Evaluate model performance
+6. Perform resource analysis
 
-Train classical models
+---
 
-Train quantum models
+# Experimental Results
 
-Print evaluation metrics
+## Model Performance Comparison
 
-Compare classical vs quantum performance
+| Model | Accuracy | F1 Score | ROC-AUC |
+|---------|---------|---------|---------|
+| Quantum-Inspired VQC | **93.86%** | **95.36%** | **98.61%** |
+| QKSVM | 57.02% | 70.66% | 47.78% |
 
-📊 Results (To Be Updated)
-Once you run the experiment, paste the output here.
-I will help you convert it into:
+---
 
-Professional tables
+## Quantum Resource Analysis
 
-Graphs (ROC, PCA, circuit diagrams)
+| Model | Qubits | Circuit Depth | Shots |
+|---------|---------|---------|---------|
+| Quantum-Inspired VQC | 4 | 12 | 1024 |
+| QKSVM | 4 | 31 | Simulator |
 
-Final report format
+---
 
-🧠 Technologies Used
-Python 3.11
+## Key Findings
 
-Qiskit
+### Quantum-Inspired VQC
 
-scikit‑learn
+- Achieved the highest classification performance.
+- ROC-AUC of 0.9861 indicates excellent predictive capability.
+- Used a relatively shallow quantum circuit (depth 12).
+- Demonstrated strong effectiveness for healthcare classification tasks.
 
-NumPy / Pandas
+### Quantum Kernel SVM (QKSVM)
 
-Matplotlib / Seaborn
+- Lower performance under the current kernel configuration.
+- Required deeper quantum circuits (depth 31).
+- Performance suggests sensitivity to feature encoding and kernel design.
 
-Quantum Circuit Optimization (SPSA)
+### Overall Observations
 
-🎯 Purpose of the Project
-This project demonstrates how quantum computing can be applied to real‑world healthcare problems.
-It serves as a strong portfolio project for:
+- Variational quantum approaches significantly outperformed the tested quantum kernel approach.
+- Circuit depth directly impacted computational complexity.
+- Quantum-inspired models show potential for future healthcare analytics applications.
 
-Machine Learning
+---
 
-Quantum Computing
+## Research Contribution
 
-Data Science
+This project contributes:
 
-Research & Academia
+- A reproducible Quantum Machine Learning workflow for healthcare applications.
+- Comparative analysis of classical and quantum-inspired models.
+- Evaluation of quantum resource requirements.
+- Experimental assessment of breast cancer diagnosis using QML techniques.
 
-Healthcare AI
+---
 
-📌 Future Improvements
-Add more quantum ansatz architectures
+## Limitations
 
-Implement QAOA‑based classification
+- Experiments were conducted using simulated quantum environments.
+- Limited qubit availability.
+- Single healthcare dataset.
+- No execution on physical quantum hardware.
+- Limited hyperparameter tuning.
 
-Add hyperparameter tuning
+---
 
-Deploy as a web API
+## Future Work
 
-Add GPU acceleration for classical models
+Potential future extensions include:
 
-👤 Author
-Tejasri Nayudu  
-Master’s in Computer Science
+- Hybrid Quantum-Classical Neural Networks
+- Execution on IBM Quantum Hardware
+- Electronic Health Record (EHR) Analysis
+- Medical Image Classification
+- Genomic Disease Prediction
+- Noise-Aware Quantum Training
+- Advanced Quantum Feature Maps
+
+---
+
+## IEEE Research Report
+
+A complete IEEE-format short research paper accompanies this project and includes:
+
+- Background and Motivation
+- Related Work
+- Methodology
+- Dataset Description
+- Classical Baselines
+- Quantum Machine Learning Approaches
+- Experimental Results
+- Resource Analysis
+- Limitations
+- Future Research Directions
+
+---
+
+## Author
+
+**Tejasri Nayudu**
+
+Master of Science in Computer Science  
 Middle Tennessee State University
-Backend Developer | ML/QML Enthusiast
+
+### Research Interests
+
+- Quantum Machine Learning
+- Healthcare Artificial Intelligence
+- Machine Learning
+- Backend Development
+- Applied Artificial Intelligence
+
+---
