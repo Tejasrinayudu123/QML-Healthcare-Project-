@@ -1,5 +1,5 @@
 from qiskit_aer import AerSimulator
-from qiskit_machine_learning.kernels import QuantumKernel
+from qiskit_machine_learning.kernels import FidelityQuantumKernel
 from qiskit.circuit.library import ZZFeatureMap
 from sklearn.svm import SVC
 from .metrics import evaluate_model
@@ -8,9 +8,8 @@ def run_qksvm(X_train, y_train, X_test, y_test, n_qubits=4):
     feature_map = ZZFeatureMap(feature_dimension=n_qubits, reps=2)
     backend = AerSimulator(method="statevector")
 
-    qkernel = QuantumKernel(
-        feature_map=feature_map,
-        quantum_instance=backend,
+    qkernel = FidelityQuantumKernel(
+    feature_map=feature_map
     )
 
     K_train = qkernel.evaluate(X_train)

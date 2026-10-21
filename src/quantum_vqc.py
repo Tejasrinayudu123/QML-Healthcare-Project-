@@ -4,7 +4,7 @@ from qiskit_aer import AerSimulator
 from qiskit_machine_learning.neural_networks import EstimatorQNN
 from qiskit_machine_learning.algorithms import VQC
 from qiskit.circuit.library import ZZFeatureMap, RealAmplitudes
-from qiskit.algorithms.optimizers import SPSA
+from qiskit_algorithms.optimizers import SPSA
 
 from .metrics import evaluate_model
 
